@@ -1,12 +1,12 @@
 .idea/
 
-/elasticsearch/master/data/
-/elasticsearch/master/logs/
-/elasticsearch/master/plugins/
-/elasticsearch/slave/data/
-/elasticsearch/slave/logs/
+elasticsearch/master/data/
+elasticsearch/master/logs/
+elasticsearch/master/plugins/
+elasticsearch/slave/data/
+elasticsearch/slave/logs/
 
-/minio/
+minio/
 
-/prometheus/node1/data/
-/prometheus/node2/data/
+prometheus/node1/data/
+prometheus/node2/data/
