@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  thanos-store:
+    image: raspbernetes/thanos:v0.23.1
+    volumes:
+      - ./thanos/bucket_config.yaml:/bucket_config.yaml
+    command:
+      - store
+      - --data-dir=/var/thanos/store
+      - --objstore.config-file=bucket_config.yaml
+      - --http-address=0.0.0.0:19191
+      - --grpc-address=0.0.0.0:19090
+    ports:
+      - 39191:19191
+      - 39090:19090
+    networks:
+      - net-thanos
+  thanos-querier:
+    image: raspbernetes/thanos:v0.23.1
+    command:
+      - query
+      - --http-address=0.0.0.0:19192
+      - --store=172.16.2.231:19090
+      - --store=172.16.2.231:29090
+      - --store=172.16.2.231:39090
+      - --query.replica-label=replica
+    ports:
+      - 19192:19192
+    networks:
+      - net-thanos
+networks:
+  net-thanos:
+    driver: bridge

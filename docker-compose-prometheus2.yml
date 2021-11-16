@@ -1,0 +1,40 @@
+version: '3.7'
+services:
+  prometheus-node2:
+    image: prom/prometheus:v2.31.0
+    container_name: prometheus-node2
+    volumes:
+      - ./prometheus/node2/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/node2/data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.min-block-duration=1m'
+      - '--storage.tsdb.max-block-duration=1m'
+    ports:
+      - 9091:9090
+    networks:
+      - net-prometheus2
+  thanos-sidecar2:
+    image: raspbernetes/thanos:v0.23.1
+    container_name: thanos-sidecar2
+    volumes:
+      - ./prometheus/node2/data:/var/prometheus
+      - ./thanos/bucket_config.yaml:/bucket_config.yaml
+    command:
+      - sidecar
+      - --tsdb.path=/var/prometheus
+      - --prometheus.url=http://prometheus-node2:9090
+      - --objstore.config-file=/bucket_config.yaml
+      - --http-address=0.0.0.0:19191
+      - --grpc-address=0.0.0.0:19090
+    ports:
+      - 29191:19191
+      - 29090:19090
+    networks:
+      - net-prometheus2
+    depends_on:
+      - prometheus-node2
+networks:
+  net-prometheus2:
+    driver: bridge
