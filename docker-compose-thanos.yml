@@ -2,6 +2,7 @@ version: '3.7'
 services:
   thanos-store:
     image: raspbernetes/thanos:v0.23.1
+    container_name: thanos-store
     volumes:
       - ./thanos/bucket_config.yaml:/bucket_config.yaml
     command:
@@ -17,6 +18,7 @@ services:
       - net-thanos
   thanos-querier:
     image: raspbernetes/thanos:v0.23.1
+    container_name: thanos-querier
     command:
       - query
       - --http-address=0.0.0.0:19192
