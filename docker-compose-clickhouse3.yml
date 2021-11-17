@@ -1,0 +1,49 @@
+version: "3.7"
+services:
+  clickhouse-node3-main:
+    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    container_name: clickhouse-node3-main
+    hostname: 172.16.2.231
+    ports:
+      - "5123:5123"
+      - "5900:5900"
+      - "5904:5904"
+      - "5909:5909"
+    volumes:
+      - ./clickhouse/node3/main/data:/var/lib/clickhouse
+      - ./clickhouse/node3/main/config/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/node1/main/config/users.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/node3/main/config/metrika.xml:/etc/clickhouse-server/metrika.xml
+      - ./clickhouse/node3/main/log:/var/log/clickhouse-server
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    networks:
+      - net-ck-3
+  clickhouse-node3-sub:
+    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    container_name: clickhouse-node3-sub
+    hostname: 172.16.2.231
+    ports:
+      - "6123:6123"
+      - "6900:6900"
+      - "6904:6904"
+      - "6909:6909"
+    volumes:
+      - ./clickhouse/node3/sub/data:/var/lib/clickhouse
+      - ./clickhouse/node3/sub/config/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/node1/main/config/users.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/node3/sub/config/metrika.xml:/etc/clickhouse-server/metrika.xml
+      - ./clickhouse/node3/sub/log:/var/log/clickhouse-server
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    networks:
+      - net-ck-3
+networks:
+  net-ck-3:
+    driver: bridge
