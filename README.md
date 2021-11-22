@@ -12,7 +12,7 @@ docker-compose -f docker-compose-es.yml up -d
 - kibana管理页面：http://localhost:5601
 - cerebro管理页面：http://localhost:9000
 
-### Thanos+MINio+Prometheus集群
+### Thanos+MinIO+Prometheus集群
 
 ```
 docker-compose -f docker-compose-minio.yml up -d
@@ -21,6 +21,7 @@ docker-compose -f docker-compose-prometheus2.yml up -d
 docker-compose -f docker-compose-thanos.yml up -d
 ```
 - 注意需要修改`thanos`目录下的`bucket_config.yml`文件中的ip为本机内网IP
+- MinIO管理页面：http://localhost:19001，登录账号密码：minio/miniostorage
 - prometheus1管理页面：http://localhost:9090/graph
 - prometheus2管理页面：http://localhost:9091/graph
 - thanos管理页面：http://localhost:19192/graph
