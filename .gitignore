@@ -19,7 +19,10 @@ elasticsearch/master/plugins/
 elasticsearch/slave/data/
 elasticsearch/slave/logs/
 
+grafana/
+
 minio/
 
 prometheus/node1/data/
 prometheus/node2/data/
+

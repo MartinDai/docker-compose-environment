@@ -1,0 +1,18 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://172.16.2.231:3100/loki/api/v1/push
+
+scrape_configs:
+- job_name: springboot-job
+  static_configs:
+  - targets:
+      - 172.16.2.231
+    labels:
+      job: debug-log
+      __path__: /var/log/*.log

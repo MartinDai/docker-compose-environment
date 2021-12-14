@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  loki:
+    image: grafana/loki:2.3.0
+    container_name: loki
+    volumes:
+      - ./loki/local-config.yaml:/etc/loki/local-config.yaml
+    ports:
+      - 3100:3100
+    networks:
+      - net-loki
+  promtail:
+    image: grafana/promtail:2.3.0
+    container_name: promtail
+    volumes:
+      - ./promtail/local-config.yaml:/etc/promtail/local-config.yaml
+      - /Users/martin/develop/projects/SpringBoot-Project/logs/info:/var/log
+    ports:
+      - 9080:9080
+    networks:
+      - net-loki
+networks:
+  net-loki:
+    driver: bridge

@@ -12,16 +12,21 @@ docker-compose -f docker-compose-es.yml up -d
 - kibana管理页面：http://localhost:5601
 - cerebro管理页面：http://localhost:9000
 
-### Thanos+MinIO+Prometheus集群
+### MinIO服务
 
 ```
 docker-compose -f docker-compose-minio.yml up -d
+```
+- MinIO管理页面：http://localhost:19001，登录账号密码：minio/miniostorage
+
+### Thanos+Prometheus集群（依赖MinIO）
+
+```
 docker-compose -f docker-compose-prometheus1.yml up -d
 docker-compose -f docker-compose-prometheus2.yml up -d
 docker-compose -f docker-compose-thanos.yml up -d
 ```
 - 注意需要修改`thanos`目录下的`bucket_config.yml`文件中的ip为本机内网IP
-- MinIO管理页面：http://localhost:19001，登录账号密码：minio/miniostorage
 - prometheus1管理页面：http://localhost:9090/graph
 - prometheus2管理页面：http://localhost:9091/graph
 - thanos管理页面：http://localhost:19192/graph
@@ -41,3 +46,18 @@ docker-compose -f docker-compose-clickhouse3.yml up -d
 ```
 - 注意需要修改`clickhouse`目录下的所有node文件夹中所有`metrika.xml`的host为本机内网IP
 - clickhouse集群需要依赖zookeeper，所以需要部署zookeeper集群
+
+### Grafana服务
+
+```
+docker-compose -f docker-compose-grafana.yml up -d
+```
+- 管理页面：http://localhost:3000，登录账号密码：admin/admin
+
+### loki+promtail服务（依赖MinIO）
+
+```
+docker-compose -f docker-compose-loki.yml up -d
+```
+- 注意需要修改`loki`和`promtail`目录下的`local-config.yaml`文件中的`172.16.2.231`为本机内网IP
+- 需要替换compose文件中的`/Users/martin/develop/projects/SpringBoot-Project/logs/info`为需要上传的日志目录
