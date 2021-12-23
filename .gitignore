@@ -1,17 +1,17 @@
 .idea/
 
-clickhouse/node1/main/data/
-clickhouse/node1/main/log/
-clickhouse/node1/sub/data/
-clickhouse/node1/sub/log/
-clickhouse/node2/main/data/
-clickhouse/node2/main/log/
-clickhouse/node2/sub/data/
-clickhouse/node2/sub/log/
-clickhouse/node3/main/data/
-clickhouse/node3/main/log/
-clickhouse/node3/sub/data/
-clickhouse/node3/sub/log/
+clickhouse/2s/node1/data/
+clickhouse/2s/node1/log/
+clickhouse/2s/node2/data/
+clickhouse/2s/node2/log/
+clickhouse/2s_1r/node1/main/data/
+clickhouse/2s_1r/node1/main/log/
+clickhouse/2s_1r/node1/sub/data/
+clickhouse/2s_1r/node1/sub/log/
+clickhouse/2s_1r/node2/main/data/
+clickhouse/2s_1r/node2/main/log/
+clickhouse/2s_1r/node2/sub/data/
+clickhouse/2s_1r/node2/sub/log/
 
 elasticsearch/master/data/
 elasticsearch/master/logs/

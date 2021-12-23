@@ -37,15 +37,22 @@ docker-compose -f docker-compose-thanos.yml up -d
 docker-compose -f docker-compose-zk.yml up -d
 ```
 
-### clickhouse集群
+### clickhouse 2分片集群
 
 ```
-docker-compose -f docker-compose-clickhouse1.yml up -d
-docker-compose -f docker-compose-clickhouse2.yml up -d
-docker-compose -f docker-compose-clickhouse3.yml up -d
+docker-compose -f docker-compose-clickhouse-cluster-2s.yml up -d
 ```
-- 注意需要修改`clickhouse`目录下的所有node文件夹中所有`metrika.xml`的host为本机内网IP
-- clickhouse集群需要依赖zookeeper，所以需要部署zookeeper集群
+- 需要修改`docker-compose-clickhouse-cluster-2s.yml`文件中所有的hostname为本机内网IP
+- 需要修改`clickhouse/2s`目录下的所有node文件夹中所有`metrika.xml`的host为本机内网IP
+
+### clickhouse 2分片1副本集群
+
+```
+docker-compose -f docker-compose-clickhouse-cluster-2s-1r.yml up -d
+```
+- 需要修改`docker-compose-clickhouse-cluster-2s-1r.yml`文件中所有的hostname为本机内网IP
+- 需要修改`clickhouse/2s_1r`目录下的所有node文件夹中所有`metrika.xml`的host为本机内网IP
+- 本集群需要依赖zookeeper，所以需要部署zookeeper集群
 
 ### Grafana服务
 

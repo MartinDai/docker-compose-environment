@@ -1,0 +1,93 @@
+version: "3.7"
+services:
+  clickhouse-2s-1r-node1-main:
+    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    container_name: clickhouse-2s-1r-node1-main
+    hostname: 172.16.2.231
+    ports:
+      - "1123:1123"
+      - "1900:1900"
+      - "1904:1904"
+      - "1909:1909"
+    volumes:
+      - ./clickhouse/2s_1r/node1/main/data:/var/lib/clickhouse
+      - ./clickhouse/2s_1r/node1/main/config/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/2s_1r/node1/main/config/users.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/2s_1r/node1/main/config/metrika.xml:/etc/clickhouse-server/metrika.xml
+      - ./clickhouse/2s_1r/node1/main/log:/var/log/clickhouse-server
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    networks:
+      - net-ck-2s-1r
+  clickhouse-2s-1r-node1-sub:
+    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    container_name: clickhouse-2s-1r-node1-sub
+    hostname: 172.16.2.231
+    ports:
+      - "2123:2123"
+      - "2900:2900"
+      - "2904:2904"
+      - "2909:2909"
+    volumes:
+      - ./clickhouse/2s_1r/node1/sub/data:/var/lib/clickhouse
+      - ./clickhouse/2s_1r/node1/sub/config/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/2s_1r/node1/sub/config/users.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/2s_1r/node1/sub/config/metrika.xml:/etc/clickhouse-server/metrika.xml
+      - ./clickhouse/2s_1r/node1/sub/log:/var/log/clickhouse-server
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    networks:
+      - net-ck-2s-1r
+  clickhouse-2s-1r-node2-main:
+    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    container_name: clickhouse-2s-1r-node2-main
+    hostname: 172.16.2.231
+    ports:
+      - "3123:3123"
+      - "3900:3900"
+      - "3904:3904"
+      - "3909:3909"
+    volumes:
+      - ./clickhouse/2s_1r/node2/main/data:/var/lib/clickhouse
+      - ./clickhouse/2s_1r/node2/main/config/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/2s_1r/node2/main/config/users.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/2s_1r/node2/main/config/metrika.xml:/etc/clickhouse-server/metrika.xml
+      - ./clickhouse/2s_1r/node2/main/log:/var/log/clickhouse-server
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    networks:
+      - net-ck-2s-1r
+  clickhouse-2s-1r-node2-sub:
+    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    container_name: clickhouse-2s-1r-node2-sub
+    hostname: 172.16.2.231
+    ports:
+      - "4123:4123"
+      - "4900:4900"
+      - "4904:4904"
+      - "4909:4909"
+    volumes:
+      - ./clickhouse/2s_1r/node2/sub/data:/var/lib/clickhouse
+      - ./clickhouse/2s_1r/node2/sub/config/config.xml:/etc/clickhouse-server/config.xml
+      - ./clickhouse/2s_1r/node2/sub/config/users.xml:/etc/clickhouse-server/users.xml
+      - ./clickhouse/2s_1r/node2/sub/config/metrika.xml:/etc/clickhouse-server/metrika.xml
+      - ./clickhouse/2s_1r/node2/sub/log:/var/log/clickhouse-server
+    ulimits:
+      nproc: 65535
+      nofile:
+        soft: 262144
+        hard: 262144
+    networks:
+      - net-ck-2s-1r
+networks:
+  net-ck-2s-1r:
+    driver: bridge
