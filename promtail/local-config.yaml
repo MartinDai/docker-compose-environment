@@ -12,7 +12,6 @@ scrape_configs:
 - job_name: springboot-job
   static_configs:
   - targets:
-      - 172.16.2.231
+      - localhost
     labels:
-      job: debug-log
       __path__: /var/log/*.log

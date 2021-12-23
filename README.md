@@ -67,4 +67,4 @@ docker-compose -f docker-compose-grafana.yml up -d
 docker-compose -f docker-compose-loki.yml up -d
 ```
 - 注意需要修改`loki`和`promtail`目录下的`local-config.yaml`文件中的`172.16.2.231`为本机内网IP
-- 需要替换compose文件中的`/Users/martin/develop/projects/SpringBoot-Project/logs/info`为需要上传的日志目录
+- 需要替换compose文件中的`/Users/martin/develop/projects/SpringBoot-Project/logs/rt`为需要上传的日志目录
