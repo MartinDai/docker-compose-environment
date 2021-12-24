@@ -17,7 +17,7 @@ docker-compose -f docker-compose-es.yml up -d
 ```
 docker-compose -f docker-compose-minio.yml up -d
 ```
-- MinIO管理页面：http://localhost:19001，登录账号密码：minio/miniostorage
+- MinIO管理页面：http://localhost:19001 ，登录账号密码：minio/miniostorage
 
 ### Thanos+Prometheus集群（依赖MinIO）
 
@@ -59,7 +59,7 @@ docker-compose -f docker-compose-clickhouse-cluster-2s-1r.yml up -d
 ```
 docker-compose -f docker-compose-grafana.yml up -d
 ```
-- 管理页面：http://localhost:3000，登录账号密码：admin/admin
+- 管理页面：http://localhost:3000 ，登录账号密码：admin/admin
 
 ### loki+promtail服务（依赖MinIO）
 
