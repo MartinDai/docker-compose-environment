@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  promtail:
+    image: grafana/promtail:2.4.1
+    container_name: promtail
+    volumes:
+      - ./promtail/config.yml:/etc/promtail/config.yml
+      - /Users/martin/develop/projects/SpringBoot-Project/logs/rt:/var/log
+    ports:
+      - 9080:9080
+    networks:
+      - net-promtail
+networks:
+  net-promtail:
+    driver: bridge

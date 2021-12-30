@@ -14,4 +14,5 @@ scrape_configs:
   - targets:
       - localhost
     labels:
+      log_type: rt
       __path__: /var/log/rt.log
