@@ -11,6 +11,7 @@ services:
       - '--storage.tsdb.path=/prometheus'
       - '--storage.tsdb.min-block-duration=1m'
       - '--storage.tsdb.max-block-duration=1m'
+      - '--storage.tsdb.retention.time=5m'
     ports:
       - 9091:9090
     networks:
