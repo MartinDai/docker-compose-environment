@@ -25,7 +25,6 @@ services:
       - --store=172.16.2.231:19090
       - --store=172.16.2.231:29090
       - --store=172.16.2.231:39090
-      - --query.replica-label=replica
     ports:
       - 19192:19192
     networks:
