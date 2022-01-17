@@ -3,7 +3,8 @@ global:
   scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
   external_labels:
-    node: my-prometheus
+    node: node2
+    cluster: my-prometheus
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
