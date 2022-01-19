@@ -5,7 +5,7 @@ services:
     container_name: promtail
     volumes:
       - ./promtail/config.yml:/etc/promtail/config.yml
-      - /Users/martin/develop/projects/SpringBoot-Project/logs/rt:/var/log
+      - /Users/martin/develop/projects/SpringBoot-Project/logs:/var/log
     ports:
       - 9080:9080
     networks:

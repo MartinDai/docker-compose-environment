@@ -11,6 +11,10 @@ ingester:
         store: inmemory
       replication_factor: 1
     final_sleep: 0s
+  wal:
+    enabled: true
+    dir: /loki/data/wal
+    flush_on_shutdown: true
   chunk_idle_period: 5m
   chunk_retain_period: 30s
   max_transfer_retries: 0
@@ -18,31 +22,30 @@ ingester:
 schema_config:
   configs:
     - from: 2021-12-14
-      store: boltdb-shipper
-      object_store: aws
+      store: boltdb-shipper # 保存索引使用的存储
+      object_store: aws # 保存chunks使用的存储
       schema: v11
       index:
-        prefix: loki_
-        period: 24h
+        prefix: loki_index_
+        period: 24h # 索引周期，必须是24h
 
 storage_config:
   aws:
     s3: http://minio:miniostorage@172.16.2.231:19000/loki
     s3forcepathstyle: true
   boltdb_shipper:
-    active_index_directory: /loki/boltdb-shipper-active
-    cache_location: /loki/boltdb-shipper-cache
-    cache_ttl: 24h         # Can be increased for faster performance over longer query periods, uses more disk space
-    shared_store: s3
+    active_index_directory: /loki/data/boltdb-shipper-active # 用于保存还未上传到共享存储的数据目录，15分钟会执行一次上传，建议挂载到宿主机，否则crash的时候这部分数据会丢失
+    cache_location: /loki/cache/boltdb-shipper-cache # 用于提供查询服务的时候的缓存数据目录
+    cache_ttl: 24h # 缓存目录中数据的有效期
+    shared_store: s3 # 共享存储配置
 compactor:
-  working_directory: /loki/compactor
+  working_directory: /loki/data/compactor # 压缩组件的工作目录
   shared_store: s3
-  compaction_interval: 5m
-
+  compaction_interval: 1h # 执行压缩/保存的周期
+  retention_enabled: true # 启用根据配置的保存时间执行保存策略功能
+  retention_delete_delay: 30m # 延迟删除chunk的时间
 limits_config:
   enforce_metric_name: false
   reject_old_samples: true
   reject_old_samples_max_age: 168h
-table_manager:
-  retention_deletes_enabled: true
   retention_period: 48h # 日志保存2天的时间，必须是上面index.period的倍数

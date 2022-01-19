@@ -14,5 +14,10 @@ scrape_configs:
   - targets:
       - localhost
     labels:
-      log_type: rt
-      __path__: /var/log/rt.log
+      level: DEBUG
+      __path__: /var/log/debug/debug.log
+  - targets:
+      - localhost
+    labels:
+      level: INFO
+      __path__: /var/log/info/info.log

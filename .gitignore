@@ -21,6 +21,8 @@ elasticsearch/slave/logs/
 
 grafana/
 
+loki/data/
+
 minio/
 
 prometheus/node1/data/
