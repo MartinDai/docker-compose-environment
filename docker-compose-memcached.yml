@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  memcached:
+    image: memcached:1.5
+    container_name: memcached
+    restart: always
+    ports:
+      - 11211:11211
+    networks:
+      - net-memcached
+networks:
+  net-memcached:
+    driver: bridge
