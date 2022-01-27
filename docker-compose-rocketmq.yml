@@ -1,0 +1,44 @@
+version: '3.7'
+services:
+  namesrv:
+    image: martindai/rocketmq:4.9.2
+    container_name: rmqnamesrv
+    command: sh mqnamesrv
+    ports:
+      - 9876:9876
+    volumes:
+      - ./rocketmq/namesrv/logs:/home/rocketmq/logs
+    networks:
+      - net-rocketmq
+  broker:
+    image: martindai/rocketmq:4.9.2
+    container_name: rmqbroker
+    environment:
+      NAMESRV_ADDR: "namesrv:9876"
+    command: sh mqbroker
+    ports:
+      - 10909:10909
+      - 10911:10911
+    volumes:
+      - ./rocketmq/broker/logs:/home/rocketmq/logs
+      - ./rocketmq/broker/store:/home/rocketmq/store
+      - ./rocketmq/broker/conf/broker.conf:/home/rocketmq/rocketmq-4.9.2/conf/broker.conf
+    networks:
+      - net-rocketmq
+    depends_on:
+      - namesrv
+  console:
+    image: toyangdon/rocketmq-console:4.5.0
+    container_name: rmq-console
+    ports:
+      - 8080:8080
+    environment:
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+    networks:
+      - net-rocketmq
+    depends_on:
+      - namesrv
+      - broker
+networks:
+  net-rocketmq:
+    driver: bridge

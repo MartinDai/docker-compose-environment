@@ -78,3 +78,11 @@ docker-compose -f docker-compose-promtail.yml up -d
 - 需要替换compose文件中的`/Users/martin/develop/projects/SpringBoot-Project/logs`为需要上传的日志目录
 - 注意需要修改`promtail`目录下的`config.yml`文件中的`172.16.2.231`为本机内网IP
 - 注意需要修改`promtail`目录下的`config.yml`文件中`__path__`的值为实际要抓取的日志文件
+
+## RocketMQ服务
+
+```
+docker-compose -f docker-compose-rocketmq.yml up -d
+```
+- 注意需要修改rocketmq/broker/conf/broker.conf文件内的brokerIP1属性为本机内网IP
+- rocketmq-console页面：http://localhost:8080
