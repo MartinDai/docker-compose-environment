@@ -28,3 +28,8 @@ minio/
 prometheus/node1/data/
 prometheus/node2/data/
 
+rocketmq/broker/logs/
+rocketmq/broker/store/
+rocketmq/namesrv/logs/
+
+
