@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  dubbo-admin:
+    image: martindai/dubbo-admin:0.4.0
+    container_name: dubbo-admin
+    environment:
+      - admin.registry.address=zookeeper://172.16.2.231:2181
+      - admin.config-center=zookeeper://172.16.2.231:2181
+      - admin.metadata-report.address=zookeeper://172.16.2.231:2181
+    ports:
+      - 8081:8080
+    networks:
+      - net-dubbo-admin
+networks:
+  net-dubbo-admin:
+    driver: bridge

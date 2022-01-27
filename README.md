@@ -86,3 +86,11 @@ docker-compose -f docker-compose-rocketmq.yml up -d
 ```
 - 注意需要修改rocketmq/broker/conf/broker.conf文件内的brokerIP1属性为本机内网IP
 - rocketmq-console页面：http://localhost:8080
+
+## Dubbo-Admin服务
+
+```
+docker-compose -f docker-compose-dubbo-admin.yml up -d
+```
+- 注意需要修改docker-compose-dubbo-admin.yml文件中的zookeeper配置ip为目标ip
+- dubbo-admin页面：http://localhost:8081，账号密码：root/root
