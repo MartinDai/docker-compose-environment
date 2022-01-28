@@ -15,7 +15,7 @@ services:
     container_name: rmqbroker
     environment:
       NAMESRV_ADDR: "namesrv:9876"
-    command: sh mqbroker
+    command: sh mqbroker -c /root/rocketmq-4.5.0/conf/broker.conf
     ports:
       - 10909:10909
       - 10911:10911
