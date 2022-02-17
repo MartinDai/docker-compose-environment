@@ -11,6 +11,17 @@ services:
       - 6379:6379
     networks:
       - net-redis
+  redis-exporter:
+    image: oliver006/redis_exporter:v1.35.1
+    container_name: redis-exporter
+    command: [
+      '--redis.password=',
+      '--redis.addr=redis:6379'
+    ]
+    ports:
+      - 9121:9121
+    networks:
+      - net-redis
 networks:
   net-redis:
     driver: bridge

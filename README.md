@@ -95,7 +95,7 @@ docker-compose -f docker-compose-dubbo-admin.yml up -d
 - 注意需要修改docker-compose-dubbo-admin.yml文件中的zookeeper配置ip为目标ip
 - dubbo-admin页面：http://localhost:8081，账号密码：root/root
 
-## Redis服务
+## Redis+exporter服务
 
 ```
 docker-compose -f docker-compose-redis.yml up -d
