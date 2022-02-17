@@ -1,0 +1,35 @@
+version: '3.7'
+services:
+  zookeeper:
+    image: zookeeper:3.6
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - net-kafka
+  kafka:
+    image: wurstmeister/kafka:2.13-2.8.1
+    container_name: kafka
+    volumes:
+      ## 挂载位置（kafka镜像和宿主机器之间时间保持一致）
+      - /etc/localtime:/etc/localtime
+      - ./kafka/data:/kafka
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: 172.16.2.231
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_LOG_RETENTION_HOURS: 120
+      KAFKA_MESSAGE_MAX_BYTES: 10000000
+      KAFKA_REPLICA_FETCH_MAX_BYTES: 10000000
+      KAFKA_GROUP_MAX_SESSION_TIMEOUT_MS: 60000
+      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_DELETE_RETENTION_MS: 1000
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    networks:
+      - net-kafka
+networks:
+  net-kafka:
+    driver: bridge
