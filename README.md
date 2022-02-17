@@ -107,7 +107,7 @@ docker-compose -f docker-compose-redis.yml up -d
 docker-compose -f docker-compose-memcached.yml up -d
 ```
 
-## MySQL服务
+## MySQL+exporter服务
 
 ```
 docker-compose -f docker-compose-mysql.yml up -d

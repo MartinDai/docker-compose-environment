@@ -22,6 +22,8 @@ services:
       - 9121:9121
     networks:
       - net-redis
+    depends_on:
+      - redis
 networks:
   net-redis:
     driver: bridge

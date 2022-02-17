@@ -14,10 +14,23 @@ services:
       '--default-time-zone=+8:00',
       '--lower-case-table-names=1'
     ]
+    volumes:
+      - ./mysql/data:/var/lib/mysql
     ports:
       - 3306:3306
     networks:
       - net-mysql
+  mysql-exporter:
+    image: prom/mysqld-exporter:v0.13.0
+    container_name: mysql-exporter
+    environment:
+      - DATA_SOURCE_NAME=root:root@(mysql:3306)/
+    ports:
+      - 9104:9104
+    networks:
+      - net-mysql
+    depends_on:
+      - mysql
 networks:
   net-mysql:
     driver: bridge
