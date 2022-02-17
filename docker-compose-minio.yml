@@ -10,7 +10,7 @@ services:
       - MINIO_ACCESS_KEY=minio
       - MINIO_SECRET_KEY=miniostorage
     volumes:
-      - ./minio:/data
+      - ./minio/data:/data
     command: server --console-address ':9001' /data
     networks:
       - net-minio

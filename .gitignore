@@ -19,13 +19,13 @@ elasticsearch/master/plugins/
 elasticsearch/slave/data/
 elasticsearch/slave/logs/
 
-grafana/
+grafana/data/
 
 kafka/data/
 
 loki/data/
 
-minio/
+minio/data/
 
 mysql/data/
 
