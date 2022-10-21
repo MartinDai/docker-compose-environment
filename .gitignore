@@ -27,6 +27,8 @@ loki/data/
 
 minio/data/
 
+postgresql/data/
+
 mysql/data/
 
 prometheus/node1/data/

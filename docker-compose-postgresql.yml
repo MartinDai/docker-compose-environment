@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  postgres:
+    image: postgres:15.0
+    container_name: postgres
+    environment:
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres-local"
+      - "PGDATA=/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    networks:
+      - net-postgres
+networks:
+  net-postgres:
+    driver: bridge
