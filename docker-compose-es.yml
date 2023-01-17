@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   elasticsearch-master:
-    image: elasticsearch:7.16.1
+    image: elasticsearch:8.5.3
     container_name: elasticsearch-master
     environment:
       - "ES_JAVA_OPTS=-Xss512k -XX:NewRatio=1 -Xms1024m -Xmx1024m"
@@ -20,7 +20,7 @@ services:
     networks:
       - net-es
   elasticsearch-slave:
-    image: elasticsearch:7.16.1
+    image: elasticsearch:8.5.3
     container_name: elasticsearch-slave
     environment:
       - "ES_JAVA_OPTS=-Xss512k -XX:NewRatio=1 -Xms1024m -Xmx1024m"
@@ -40,7 +40,7 @@ services:
     depends_on:
       - elasticsearch-master
   kibana:
-    image: kibana:7.16.1
+    image: kibana:8.5.3
     container_name: kibana
     environment:
       - SERVER_NAME=kibana-server
@@ -52,13 +52,11 @@ services:
       - net-es
     depends_on:
       - elasticsearch-master
-  cerebro:
-    image: martindai/cerebro:0.9.4
-    container_name: cerebro
+  elasticvue:
+    image: cars10/elasticvue:0.44.0
+    container_name: elasticvue
     ports:
-      - 9000:9000
-    command:
-      - -Dhosts.0.host=http://elasticsearch-master:9200
+      - 9000:8080
     networks:
       - net-es
     depends_on:
