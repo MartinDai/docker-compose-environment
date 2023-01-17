@@ -1,9 +1,9 @@
 version: "3.7"
 services:
   clickhouse-2s-node1:
-    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    image: clickhouse/clickhouse-server:22.12.3.5-alpine
     container_name: clickhouse-2s-node1
-    hostname: 172.16.2.231
+    hostname: 172.16.0.152
     ports:
       - "5123:5123"
       - "5900:5900"
@@ -23,9 +23,9 @@ services:
     networks:
       - net-ck-2s
   clickhouse-2s-node2:
-    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    image: clickhouse/clickhouse-server:22.12.3.5-alpine
     container_name: clickhouse-2s-node2
-    hostname: 172.16.2.231
+    hostname: 172.16.0.152
     ports:
       - "6123:6123"
       - "6900:6900"

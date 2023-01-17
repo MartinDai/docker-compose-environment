@@ -6,13 +6,13 @@
             <shard>
                 <internal_replication>true</internal_replication>
                 <replica>
-                    <host>172.16.2.231</host>
+                    <host>172.16.0.152</host>
                     <port>1900</port>
                     <user>dba</user>
                     <password>123456</password>
                 </replica>
                 <replica>
-                    <host>172.16.2.231</host>
+                    <host>172.16.0.152</host>
                     <port>4900</port>
                     <user>dba</user>
                     <password>123456</password>
@@ -23,13 +23,13 @@
             <shard>
                 <internal_replication>true</internal_replication>
                 <replica>
-                    <host>172.16.2.231</host>
+                    <host>172.16.0.152</host>
                     <port>2900</port>
                     <user>dba</user>
                     <password>123456</password>
                 </replica>
                 <replica>
-                    <host>172.16.2.231</host>
+                    <host>172.16.0.152</host>
                     <port>3900</port>
                     <user>dba</user>
                     <password>123456</password>
@@ -41,15 +41,15 @@
     <!-- ZK  -->
     <zookeeper-servers>
         <node index="1">
-            <host>172.16.2.231</host>
+            <host>172.16.0.152</host>
             <port>2181</port>
         </node>
         <node index="2">
-            <host>172.16.2.231</host>
+            <host>172.16.0.152</host>
             <port>2182</port>
         </node>
         <node index="3">
-            <host>172.16.2.231</host>
+            <host>172.16.0.152</host>
             <port>2183</port>
         </node>
     </zookeeper-servers>

@@ -6,7 +6,7 @@
             <shard>
                 <internal_replication>true</internal_replication>
                 <replica>
-                    <host>172.16.2.231</host>
+                    <host>172.16.0.152</host>
                     <port>5900</port>
                     <user>dba</user>
                     <password>123456</password>
@@ -17,7 +17,7 @@
             <shard>
                 <internal_replication>true</internal_replication>
                 <replica>
-                    <host>172.16.2.231</host>
+                    <host>172.16.0.152</host>
                     <port>6900</port>
                     <user>dba</user>
                     <password>123456</password>

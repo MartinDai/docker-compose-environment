@@ -1,9 +1,9 @@
 version: "3.7"
 services:
   clickhouse-2s-1r-node1-main:
-    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    image: clickhouse/clickhouse-server:22.12.3.5-alpine
     container_name: clickhouse-2s-1r-node1-main
-    hostname: 172.16.2.231
+    hostname: 172.16.0.152
     ports:
       - "1123:1123"
       - "1900:1900"
@@ -23,9 +23,9 @@ services:
     networks:
       - net-ck-2s-1r
   clickhouse-2s-1r-node1-sub:
-    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    image: clickhouse/clickhouse-server:22.12.3.5-alpine
     container_name: clickhouse-2s-1r-node1-sub
-    hostname: 172.16.2.231
+    hostname: 172.16.0.152
     ports:
       - "2123:2123"
       - "2900:2900"
@@ -45,9 +45,9 @@ services:
     networks:
       - net-ck-2s-1r
   clickhouse-2s-1r-node2-main:
-    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    image: clickhouse/clickhouse-server:22.12.3.5-alpine
     container_name: clickhouse-2s-1r-node2-main
-    hostname: 172.16.2.231
+    hostname: 172.16.0.152
     ports:
       - "3123:3123"
       - "3900:3900"
@@ -67,9 +67,9 @@ services:
     networks:
       - net-ck-2s-1r
   clickhouse-2s-1r-node2-sub:
-    image: lunalabsltd/clickhouse-server:21.7.2.7-arm
+    image: clickhouse/clickhouse-server:22.12.3.5-alpine
     container_name: clickhouse-2s-1r-node2-sub
-    hostname: 172.16.2.231
+    hostname: 172.16.0.152
     ports:
       - "4123:4123"
       - "4900:4900"
