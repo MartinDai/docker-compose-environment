@@ -120,3 +120,10 @@ docker-compose -f docker-compose-mysql.yml up -d
 docker-compose -f docker-compose-kafka.yml up -d
 ```
 - 注意需要修改docker-compose-kafka.yml文件中的KAFKA_ADVERTISED_HOST_NAME的配置为本机内网IP
+
+## Neo4j服务
+
+```
+docker-compose -f docker-compose-neo4j.yml up -d
+```
+- Web页面：http://localhost:7474/browser/
