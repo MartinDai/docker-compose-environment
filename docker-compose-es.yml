@@ -15,8 +15,8 @@ services:
       - ./elasticsearch/master/logs:/usr/share/elasticsearch/logs
       - ./elasticsearch/master/plugins:/usr/share/elasticsearch/plugins
     ports:
-      - 9200:9200
-      - 9300:9300
+      - "9200:9200"
+      - "9300:9300"
     networks:
       - net-es
   elasticsearch-slave:
@@ -33,8 +33,8 @@ services:
       - ./elasticsearch/slave/data:/usr/share/elasticsearch/data
       - ./elasticsearch/slave/logs:/usr/share/elasticsearch/logs
     ports:
-      - 9201:9201
-      - 9301:9301
+      - "9201:9201"
+      - "9301:9301"
     networks:
       - net-es
     depends_on:
@@ -47,7 +47,7 @@ services:
       - ELASTICSEARCH_HOSTS=http://elasticsearch-master:9200
       - I18N_LOCALE=zh-CN
     ports:
-      - 5601:5601
+      - "5601:5601"
     networks:
       - net-es
     depends_on:
@@ -56,7 +56,7 @@ services:
     image: cars10/elasticvue:0.44.0
     container_name: elasticvue
     ports:
-      - 9000:8080
+      - "9000:8080"
     networks:
       - net-es
     depends_on:

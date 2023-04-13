@@ -10,7 +10,7 @@ services:
     volumes:
       - ./postgresql/data:/var/lib/postgresql/data/pgdata
     ports:
-      - 5432:5432
+      - "5432:5432"
     networks:
       - net-postgres
 networks:

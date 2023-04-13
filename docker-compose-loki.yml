@@ -7,7 +7,7 @@ services:
       - ./loki/local-config.yaml:/etc/loki/local-config.yaml
       - ./loki/data:/loki/data
     ports:
-      - 3100:3100
+      - "3100:3100"
     networks:
       - net-loki
 networks:

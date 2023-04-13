@@ -7,7 +7,7 @@ services:
       - ./promtail/config.yml:/etc/promtail/config.yml
       - /Users/martin/develop/projects/SpringBoot-Project/logs:/var/log
     ports:
-      - 9080:9080
+      - "9080:9080"
     networks:
       - net-promtail
 networks:

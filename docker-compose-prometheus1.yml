@@ -13,7 +13,7 @@ services:
       - '--storage.tsdb.max-block-duration=1m'
       - '--storage.tsdb.retention.time=5m'
     ports:
-      - 9090:9090
+      - "9090:9090"
     networks:
       - net-prometheus1
   thanos-sidecar1:
@@ -30,8 +30,8 @@ services:
       - --http-address=0.0.0.0:19191
       - --grpc-address=0.0.0.0:19090
     ports:
-      - 19191:19191
-      - 19090:19090
+      - "19191:19191"
+      - "19090:19090"
     networks:
       - net-prometheus1
     depends_on:

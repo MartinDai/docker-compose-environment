@@ -12,8 +12,8 @@ services:
       - --http-address=0.0.0.0:19191
       - --grpc-address=0.0.0.0:19090
     ports:
-      - 39191:19191
-      - 39090:19090
+      - "39191:19191"
+      - "39090:19090"
     networks:
       - net-thanos
   thanos-querier:
@@ -27,7 +27,7 @@ services:
       - --store=172.16.2.231:39090
       - --query.replica-label=node
     ports:
-      - 19192:19192
+      - "19192:19192"
     networks:
       - net-thanos
 networks:

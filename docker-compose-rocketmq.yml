@@ -5,7 +5,7 @@ services:
     container_name: rmqnamesrv
     command: sh mqnamesrv
     ports:
-      - 9876:9876
+      - "9876:9876"
     volumes:
       - ./rocketmq/namesrv/logs:/home/rocketmq/logs
     networks:
@@ -17,8 +17,8 @@ services:
       NAMESRV_ADDR: "namesrv:9876"
     command: sh mqbroker -c /root/rocketmq-4.5.0/conf/broker.conf
     ports:
-      - 10909:10909
-      - 10911:10911
+      - "10909:10909"
+      - "10911:10911"
     volumes:
       - ./rocketmq/broker/logs:/home/rocketmq/logs
       - ./rocketmq/broker/store:/home/rocketmq/store
@@ -31,7 +31,7 @@ services:
     image: toyangdon/rocketmq-console:4.5.0
     container_name: rmq-console
     ports:
-      - 8080:8080
+      - "8080:8080"
     environment:
       JAVA_OPTS: "-Drocketmq.namesrv.addr=namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
     networks:
