@@ -28,6 +28,8 @@ services:
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      # 支持动态添加集群
+      DYNAMIC_CONFIG_ENABLED: true
     ports:
       - "9999:8080"
     networks:
