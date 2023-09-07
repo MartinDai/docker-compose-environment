@@ -1,33 +1,35 @@
 version: '3.7'
 services:
-  zookeeper:
-    image: zookeeper:3.6
-    container_name: zookeeper
-    ports:
-      - "2181:2181"
-    networks:
-      - net-kafka
   kafka:
-    image: wurstmeister/kafka:2.13-2.8.1
+    image: bitnami/kafka:3.5.1
     container_name: kafka
     volumes:
       ## 挂载位置（kafka镜像和宿主机器之间时间保持一致）
       - /etc/localtime:/etc/localtime
-      - ./kafka/data:/kafka
+      - ./kafka/data:/bitnami/kafka
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: 172.16.2.231
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_PORT: 9092
-      KAFKA_LOG_RETENTION_HOURS: 120
-      KAFKA_MESSAGE_MAX_BYTES: 10000000
-      KAFKA_REPLICA_FETCH_MAX_BYTES: 10000000
-      KAFKA_GROUP_MAX_SESSION_TIMEOUT_MS: 60000
-      KAFKA_NUM_PARTITIONS: 3
-      KAFKA_DELETE_RETENTION_MS: 1000
+      # KRaft settings
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka:9093
+      # Listeners
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
     ports:
       - "9092:9092"
-    depends_on:
-      - zookeeper
+    networks:
+      - net-kafka
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+    ports:
+      - "9999:8080"
     networks:
       - net-kafka
 networks:

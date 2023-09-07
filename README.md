@@ -114,12 +114,13 @@ docker-compose -f docker-compose-mysql.yml up -d
 ```
 - 账号密码：root/root
 
-## Kafka+zookeeper服务
+## Kafka+UI服务
 
 ```
 docker-compose -f docker-compose-kafka.yml up -d
 ```
-- 注意需要修改docker-compose-kafka.yml文件中的KAFKA_ADVERTISED_HOST_NAME的配置为本机内网IP
+
+- kafka-ui页面：http://localhost:9999
 
 ## Neo4j服务
 
