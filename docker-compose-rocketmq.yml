@@ -1,8 +1,8 @@
 version: '3.7'
 services:
   namesrv:
-    image: martindai/rocketmq:4.9.2
-    container_name: rmqnamesrv
+    image: martindai/rocketmq:5.1.0
+    container_name: rmq-namesrv
     command: sh mqnamesrv
     ports:
       - "9876:9876"
@@ -11,29 +11,31 @@ services:
     networks:
       - net-rocketmq
   broker:
-    image: martindai/rocketmq:4.9.2
-    container_name: rmqbroker
+    image: martindai/rocketmq:5.1.0
+    container_name: rmq-broker
     environment:
       NAMESRV_ADDR: "namesrv:9876"
-    command: sh mqbroker -c /root/rocketmq-4.5.0/conf/broker.conf
+      JAVA_OPTS: "-Duser.home=/opt"
+      JAVA_OPT_EXT: "-server -Xms256m -Xmx512m"
+    command: sh mqbroker -c /home/rocketmq/rocketmq-5.1.0/conf/broker.conf
     ports:
       - "10909:10909"
       - "10911:10911"
     volumes:
       - ./rocketmq/broker/logs:/home/rocketmq/logs
       - ./rocketmq/broker/store:/home/rocketmq/store
-      - ./rocketmq/broker/conf/broker.conf:/home/rocketmq/rocketmq-4.9.2/conf/broker.conf
+      - ./rocketmq/broker/conf/broker.conf:/home/rocketmq/rocketmq-5.1.0/conf/broker.conf
     networks:
       - net-rocketmq
     depends_on:
       - namesrv
-  console:
-    image: toyangdon/rocketmq-console:4.5.0
-    container_name: rmq-console
+  dashboard:
+    image: martindai/rocketmq-dashboard:1.0.0
+    container_name: rmq-dashboard
     ports:
-      - "8080:8080"
+      - "28080:8080"
     environment:
-      JAVA_OPTS: "-Drocketmq.namesrv.addr=namesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+      - NAMESRV_ADDR=namesrv:9876
     networks:
       - net-rocketmq
     depends_on:
