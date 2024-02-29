@@ -12,7 +12,7 @@ docker-compose -f docker-compose-es.yml up -d
 - 注意需要修改`elasticsearch`目录下的`master`和`slave`两个文件夹中的`config/elasticsearch.yml`文件中的ip为本机内网IP
 - 这个组合比较消耗内存，至少保证docker有3.5G的空闲可分配内存再启动
 - kibana管理页面：http://localhost:5601
-- elsticvue管理页面：http://localhost:9000
+- elsticvue管理页面：http://localhost:18080
 
 ## MinIO服务
 
