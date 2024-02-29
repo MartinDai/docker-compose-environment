@@ -13,6 +13,8 @@ clickhouse/2s_1r/node2/main/log/
 clickhouse/2s_1r/node2/sub/data/
 clickhouse/2s_1r/node2/sub/log/
 
+cloudbeaver/workspace/
+
 elasticsearch/master/data/
 elasticsearch/master/logs/
 elasticsearch/master/plugins/

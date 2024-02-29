@@ -129,3 +129,10 @@ docker-compose -f docker-compose-kafka.yml up -d
 docker-compose -f docker-compose-neo4j.yml up -d
 ```
 - Web页面：http://localhost:7474/browser/
+
+## cloudbeaver服务（web版dbeaver）
+
+```
+docker-compose -f docker-compose-cloudbeaver.yml up -d
+```
+- 管理页面：http://localhost:8978

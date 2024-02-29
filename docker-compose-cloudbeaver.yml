@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  dbeaver:
+    image: dbeaver/cloudbeaver:23.3.5
+    container_name: dbeaver
+    volumes:
+      - ./cloudbeaver/workspace:/opt/cloudbeaver/workspace
+    ports:
+      - "8978:8978"
+    networks:
+      - net-dbeaver
+networks:
+  net-dbeaver:
+    driver: bridge
