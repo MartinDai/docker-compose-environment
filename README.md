@@ -33,11 +33,12 @@ docker-compose -f docker-compose-thanos.yml up -d
 - prometheus2管理页面：http://localhost:9091/graph
 - thanos管理页面：http://localhost:19192/graph
 
-## Zookeeper集群
+## Zookeeper集群+zoonavigator服务
 
 ```
 docker-compose -f docker-compose-zk.yml up -d
 ```
+- zoonavigator管理页面：http://localhost:9000
 
 ## clickhouse 2分片集群
 
