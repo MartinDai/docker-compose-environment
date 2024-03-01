@@ -28,7 +28,7 @@ docker-compose -f docker-compose-prometheus1.yml up -d
 docker-compose -f docker-compose-prometheus2.yml up -d
 docker-compose -f docker-compose-thanos.yml up -d
 ```
-- 注意需要修改`thanos`目录下的`bucket_config.yml`文件中的ip为本机内网IP
+- 注意需要修改`docker-compose-thanos.yml`文件和`thanos`目录下的`bucket_config.yml`文件中的ip为本机内网IP
 - prometheus1管理页面：http://localhost:9090/graph
 - prometheus2管理页面：http://localhost:9091/graph
 - thanos管理页面：http://localhost:19192/graph
