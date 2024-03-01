@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   redis:
-    image: redis:5.0
+    image: redis:7.2.4
     container_name: redis
     command: redis-server /etc/redis/redis.conf
     restart: always
@@ -12,7 +12,7 @@ services:
     networks:
       - net-redis
   redis-exporter:
-    image: oliver006/redis_exporter:v1.35.1
+    image: oliver006/redis_exporter:v1.58.0
     container_name: redis-exporter
     command: [
       '--redis.password=',
