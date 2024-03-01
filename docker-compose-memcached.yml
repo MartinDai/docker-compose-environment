@@ -1,11 +1,24 @@
 version: '3.7'
 services:
   memcached:
-    image: memcached:1.5
+    image: memcached:1.6.24
     container_name: memcached
     restart: always
     ports:
       - "11211:11211"
+    networks:
+      - net-memcached
+  memcached_exporter:
+    image: ricardbejarano/memcached_exporter:0.14.2
+    container_name: memcached_exporter
+    command: [
+      '--memcached.address=memcached:11211'
+    ]
+    restart: always
+    ports:
+      - "9150:9150"
+    depends_on:
+      - memcached
     networks:
       - net-memcached
 networks:

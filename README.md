@@ -102,7 +102,7 @@ docker-compose -f docker-compose-dubbo-admin.yml up -d
 docker-compose -f docker-compose-redis.yml up -d
 ```
 
-## Memcached服务
+## Memcached+exporter服务
 
 ```
 docker-compose -f docker-compose-memcached.yml up -d
