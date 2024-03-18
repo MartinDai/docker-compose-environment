@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    volumes:
+      ## 挂载位置（镜像和宿主机器之间时间保持一致）
+      - /etc/localtime:/etc/localtime
+      - ./rabbitmq/data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=rabbitmq-local
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "25672:25672"
+    networks:
+      - net-rabbitmq
+networks:
+  net-rabbitmq:
+    driver: bridge

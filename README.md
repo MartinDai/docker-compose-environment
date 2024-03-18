@@ -11,15 +11,15 @@ docker-compose -f docker-compose-es.yml up -d
 ```
 - 注意需要修改`elasticsearch`目录下的`master`和`slave`两个文件夹中的`config/elasticsearch.yml`文件中的ip为本机内网IP
 - 这个组合比较消耗内存，至少保证docker有3.5G的空闲可分配内存再启动
-- kibana管理页面：http://localhost:5601
-- elsticvue管理页面：http://localhost:18080
+- kibana管理页面：http://127.0.0.1:5601
+- elsticvue管理页面：http://127.0.0.1:18080
 
 ## MinIO服务
 
 ```
 docker-compose -f docker-compose-minio.yml up -d
 ```
-- MinIO管理页面：http://localhost:19001 ，登录账号密码：minio/miniostorage
+- MinIO管理页面：http://127.0.0.1:19001，账号密码：minio/miniostorage
 
 ## Thanos+Prometheus集群（依赖MinIO）
 
@@ -29,16 +29,16 @@ docker-compose -f docker-compose-prometheus2.yml up -d
 docker-compose -f docker-compose-thanos.yml up -d
 ```
 - 注意需要修改`docker-compose-thanos.yml`文件和`thanos`目录下的`bucket_config.yml`文件中的ip为本机内网IP
-- prometheus1管理页面：http://localhost:9090/graph
-- prometheus2管理页面：http://localhost:9091/graph
-- thanos管理页面：http://localhost:19192/graph
+- prometheus1管理页面：http://127.0.0.1:9090/graph
+- prometheus2管理页面：http://127.0.0.1:9091/graph
+- thanos管理页面：http://127.0.0.1:19192/graph
 
 ## Zookeeper集群+zoonavigator服务
 
 ```
 docker-compose -f docker-compose-zk.yml up -d
 ```
-- zoonavigator管理页面：http://localhost:9000
+- zoonavigator管理页面：http://127.0.0.1:9000
 
 ## clickhouse 2分片集群
 
@@ -62,7 +62,7 @@ docker-compose -f docker-compose-clickhouse-cluster-2s-1r.yml up -d
 ```
 docker-compose -f docker-compose-grafana.yml up -d
 ```
-- 管理页面：http://localhost:3000 ，登录账号密码：admin/admin
+- 管理页面：http://127.0.0.1:3000 ，登录账号密码：admin/admin
 
 ## Loki服务（依赖MinIO）
 
@@ -86,7 +86,7 @@ docker-compose -f docker-compose-promtail.yml up -d
 docker-compose -f docker-compose-rocketmq.yml up -d
 ```
 - 注意需要修改rocketmq/broker/conf/broker.conf文件内的brokerIP1属性为本机内网IP
-- rocketmq-dashboard页面：http://localhost:28080
+- rocketmq-dashboard页面：http://127.0.0.1:28080
 
 ## Dubbo-Admin服务
 
@@ -94,7 +94,7 @@ docker-compose -f docker-compose-rocketmq.yml up -d
 docker-compose -f docker-compose-dubbo-admin.yml up -d
 ```
 - 注意需要修改docker-compose-dubbo-admin.yml文件中的zookeeper配置ip为目标ip
-- dubbo-admin页面：http://localhost:8081，账号密码：root/root
+- dubbo-admin页面：http://127.0.0.1:8081，账号密码：root/root
 
 ## Redis+exporter服务
 
@@ -127,19 +127,25 @@ docker-compose -f docker-compose-postgresql.yml up -d
 ```
 docker-compose -f docker-compose-kafka.yml up -d
 ```
+- kafka-ui页面：http://127.0.0.1:9999
 
-- kafka-ui页面：http://localhost:9999
+## RabbitMQ服务
+
+```
+docker-compose -f docker-compose-rabbitmq.yml up -d
+```
+- management页面：http://127.0.0.1:15672，账号密码：rabbitmq/rabbitmq-local
 
 ## Neo4j服务
 
 ```
 docker-compose -f docker-compose-neo4j.yml up -d
 ```
-- Web页面：http://localhost:7474/browser/
+- Web页面：http://127.0.0.1:7474/browser/
 
 ## cloudbeaver服务（web版dbeaver）
 
 ```
 docker-compose -f docker-compose-cloudbeaver.yml up -d
 ```
-- 管理页面：http://localhost:8978
+- 管理页面：http://127.0.0.1:8978

@@ -40,4 +40,4 @@ rocketmq/broker/logs/
 rocketmq/broker/store/
 rocketmq/namesrv/logs/
 
-
+rabbitmq/data/
