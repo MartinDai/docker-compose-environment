@@ -115,6 +115,13 @@ docker-compose -f docker-compose-mysql.yml up -d
 ```
 - 账号密码：root/root
 
+## PostgreSQL+exporter服务
+
+```
+docker-compose -f docker-compose-postgresql.yml up -d
+```
+- 账号密码：postgres/postgres-local
+
 ## Kafka+UI服务
 
 ```

@@ -13,6 +13,15 @@ services:
       - "5432:5432"
     networks:
       - net-postgres
+  postgres_exporter:
+    image: quay.io/prometheuscommunity/postgres-exporter
+    container_name: postgres_exporter
+    environment:
+      - "DATA_SOURCE_NAME=postgresql://postgres:postgres-local@postgres:5432/postgres?sslmode=disable"
+    ports:
+      - "9187:9187"
+    networks:
+      - net-postgres
 networks:
   net-postgres:
     driver: bridge
