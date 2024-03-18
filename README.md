@@ -135,6 +135,7 @@ docker-compose -f docker-compose-kafka.yml up -d
 docker-compose -f docker-compose-rabbitmq.yml up -d
 ```
 - management页面：http://127.0.0.1:15672，账号密码：rabbitmq/rabbitmq-local
+- metrics地址：http://127.0.0.1:15692/metrics
 
 ## Neo4j服务
 
