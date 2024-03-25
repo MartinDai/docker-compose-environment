@@ -7,7 +7,7 @@
 ## Elasticsearch主从集群+Kibana服务+Elasticvue服务
 
 ```
-docker-compose -f docker-compose-es.yml up -d
+docker-compose -f docker-compose-elasticsearch.yml up -d
 ```
 - 注意需要修改`elasticsearch`目录下的`master`和`slave`两个文件夹中的`config/elasticsearch.yml`文件中的ip为本机内网IP
 - 这个组合比较消耗内存，至少保证docker有3.5G的空闲可分配内存再启动
