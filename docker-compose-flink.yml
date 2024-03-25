@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  job-manager:
+    image: flink:1.19.0-scala_2.12-java8
+    container_name: job-manager
+    expose:
+      - "6123"
+    ports:
+      - "8081:8081"
+    command: jobmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=job-manager
+    volumes:
+      - ./flink/data/:/flink-data/
+    networks:
+      - net-flink
+  task-manager1:
+    image: flink:1.19.0-scala_2.12-java8
+    container_name: task-manager1
+    expose:
+      - "6121"
+      - "6122"
+    command: taskmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=job-manager
+      - TASK_MANAGER_NUMBER_OF_TASK_SLOTS=2
+    depends_on:
+      - job-manager
+    networks:
+      - net-flink
+  task-manager2:
+    image: flink:1.19.0-scala_2.12-java8
+    container_name: task-manager2
+    expose:
+      - "6121"
+      - "6122"
+    command: taskmanager
+    environment:
+      - JOB_MANAGER_RPC_ADDRESS=job-manager
+      - TASK_MANAGER_NUMBER_OF_TASK_SLOTS=2
+    depends_on:
+      - job-manager
+    networks:
+      - net-flink
+networks:
+  net-flink:
+    driver: bridge

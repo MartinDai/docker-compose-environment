@@ -23,6 +23,8 @@ elasticsearch/slave/logs/
 
 grafana/data/
 
+flink/data/
+
 kafka/data/
 
 loki/data/

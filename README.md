@@ -151,3 +151,10 @@ docker-compose -f docker-compose-neo4j.yml up -d
 docker-compose -f docker-compose-cloudbeaver.yml up -d
 ```
 - 管理页面：http://127.0.0.1:8978
+
+## Flink服务
+
+```
+docker-compose -f docker-compose-flink.yml up -d
+```
+- dashboard页面：http://127.0.0.1:8081
