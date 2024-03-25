@@ -29,6 +29,18 @@ services:
       - net-rocketmq
     depends_on:
       - namesrv
+  exporter:
+    image: martindai/rocketmq-exporter:0.0.2
+    container_name: rmq-exporter
+    ports:
+      - "5557:5557"
+    environment:
+      - rocketmq.config.namesrvAddr=namesrv:9876
+    networks:
+      - net-rocketmq
+    depends_on:
+      - namesrv
+      - broker
   dashboard:
     image: martindai/rocketmq-dashboard:1.0.0
     container_name: rmq-dashboard
