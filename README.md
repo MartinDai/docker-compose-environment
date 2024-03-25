@@ -95,7 +95,7 @@ docker-compose -f docker-compose-rocketmq.yml up -d
 docker-compose -f docker-compose-dubbo-admin.yml up -d
 ```
 - 注意需要修改docker-compose-dubbo-admin.yml文件中的zookeeper配置ip为目标ip
-- dubbo-admin页面：http://127.0.0.1:8081，账号密码：root/root
+- dubbo-admin页面：http://127.0.0.1:8088，账号密码：root/root
 
 ## Redis+exporter服务
 
