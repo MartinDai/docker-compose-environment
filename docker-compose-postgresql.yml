@@ -14,7 +14,7 @@ services:
     networks:
       - net-postgres
   postgres_exporter:
-    image: quay.io/prometheuscommunity/postgres-exporter
+    image: prometheuscommunity/postgres-exporter:v0.15.0
     container_name: postgres_exporter
     environment:
       - "DATA_SOURCE_NAME=postgresql://postgres:postgres-local@postgres:5432/postgres?sslmode=disable"
