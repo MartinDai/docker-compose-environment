@@ -23,7 +23,7 @@ services:
     networks:
       - net-kafka
   kafka-ui:
-    image: provectuslabs/kafka-ui:53a6553765a806eda9905c43bfcfe09da6812035
+    image: kafbat/kafka-ui:v1.0.0
     container_name: kafka-ui
     environment:
       KAFKA_CLUSTERS_0_NAME: local
