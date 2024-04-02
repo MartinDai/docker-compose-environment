@@ -158,3 +158,10 @@ docker-compose -f docker-compose-cloudbeaver.yml up -d
 docker-compose -f docker-compose-flink.yml up -d
 ```
 - dashboard页面：http://127.0.0.1:8081
+
+## OpenGauss服务
+
+```
+docker-compose -f docker-compose-opengauss.yml up -d
+```
+- 账号密码：gauss/Gauss@123

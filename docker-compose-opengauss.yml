@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  gauss:
+    image: opengauss/opengauss:5.0.0
+    container_name: gauss
+    environment:
+      - "GS_USERNAME=gauss"
+      - "GS_PASSWORD=Gauss@123"
+      - "TZ=Asia/Shanghai"
+    ports:
+      - "5432:5432"
+    networks:
+      - net-gauss
+networks:
+  net-gauss:
+    driver: bridge
