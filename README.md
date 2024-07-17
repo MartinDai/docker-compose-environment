@@ -103,6 +103,13 @@ docker-compose -f docker-compose-dubbo-admin.yml up -d
 docker-compose -f docker-compose-redis.yml up -d
 ```
 
+## Redis Cluster集群服务(3主3从)
+
+```
+docker-compose -f docker-compose-redis-cluster.yml up -d
+```
+- 启动完成后，进入其中一个容器节点，执行命令`redis-cli --cluster create 127.0.0.1:6479 127.0.0.1:6579 127.0.0.1:6679 127.0.0.1:6779 127.0.0.1:6879 127.0.0.1:6979 --cluster-replicas 1`创建cluster集群
+
 ## Memcached+exporter服务
 
 ```

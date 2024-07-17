@@ -1,0 +1,80 @@
+version: '3.7'
+services:
+  redis6479:
+    image: redis:7.2.4
+    container_name: redis6479
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '5g'
+    volumes:
+      - ./redis-cluster/redis6479/data:/data
+      - ./redis-cluster/redis6479/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-cluster/redis6479/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 'host'
+  redis6579:
+    image: redis:7.2.4
+    container_name: redis6579
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '5g'
+    volumes:
+      - ./redis-cluster/redis6579/data:/data
+      - ./redis-cluster/redis6579/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-cluster/redis6579/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 'host'
+  redis6679:
+    image: redis:7.2.4
+    container_name: redis6679
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '5g'
+    volumes:
+      - ./redis-cluster/redis6679/data:/data
+      - ./redis-cluster/redis6679/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-cluster/redis6679/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 'host'
+  redis6779:
+    image: redis:7.2.4
+    container_name: redis6779
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '5g'
+    volumes:
+      - ./redis-cluster/redis6779/data:/data
+      - ./redis-cluster/redis6779/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-cluster/redis6779/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 'host'
+  redis6879:
+    image: redis:7.2.4
+    container_name: redis6879
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '5g'
+    volumes:
+      - ./redis-cluster/redis6879/data:/data
+      - ./redis-cluster/redis6879/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-cluster/redis6879/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 'host'
+  redis6979:
+    image: redis:7.2.4
+    container_name: redis6979
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '5g'
+    volumes:
+      - ./redis-cluster/redis6979/data:/data
+      - ./redis-cluster/redis6979/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./redis-cluster/redis6979/logs:/logs
+    command: redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 'host'

@@ -43,3 +43,16 @@ rocketmq/broker/store/
 rocketmq/namesrv/logs/
 
 rabbitmq/data/
+
+redis-cluster/redis6479/data/
+redis-cluster/redis6479/logs/
+redis-cluster/redis6579/data/
+redis-cluster/redis6579/logs/
+redis-cluster/redis6679/data/
+redis-cluster/redis6679/logs/
+redis-cluster/redis6779/data/
+redis-cluster/redis6779/logs/
+redis-cluster/redis6879/data/
+redis-cluster/redis6879/logs/
+redis-cluster/redis6979/data/
+redis-cluster/redis6979/logs/
