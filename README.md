@@ -6,7 +6,7 @@
 
 ## Elasticsearch主从集群+Kibana服务+Elasticvue服务
 
-```
+```shell
 docker-compose -f docker-compose-elasticsearch.yml up -d
 ```
 - 注意需要修改`elasticsearch`目录下的`master`和`slave`两个文件夹中的`config/elasticsearch.yml`文件中的ip为本机内网IP
@@ -16,14 +16,14 @@ docker-compose -f docker-compose-elasticsearch.yml up -d
 
 ## MinIO服务
 
-```
+```shell
 docker-compose -f docker-compose-minio.yml up -d
 ```
 - MinIO管理页面：http://127.0.0.1:19001，账号密码：minio/miniostorage
 
 ## Thanos+Prometheus集群（依赖MinIO）
 
-```
+```shell
 docker-compose -f docker-compose-prometheus1.yml up -d
 docker-compose -f docker-compose-prometheus2.yml up -d
 docker-compose -f docker-compose-thanos.yml up -d
@@ -35,14 +35,14 @@ docker-compose -f docker-compose-thanos.yml up -d
 
 ## Zookeeper集群+zoonavigator服务
 
-```
+```shell
 docker-compose -f docker-compose-zk.yml up -d
 ```
 - zoonavigator管理页面：http://127.0.0.1:9000
 
 ## clickhouse 2分片集群
 
-```
+```shell
 docker-compose -f docker-compose-clickhouse-cluster-2s.yml up -d
 ```
 - 需要修改`docker-compose-clickhouse-cluster-2s.yml`文件中所有的hostname为本机内网IP
@@ -50,7 +50,7 @@ docker-compose -f docker-compose-clickhouse-cluster-2s.yml up -d
 
 ## clickhouse 2分片1副本集群
 
-```
+```shell
 docker-compose -f docker-compose-clickhouse-cluster-2s-1r.yml up -d
 ```
 - 需要修改`docker-compose-clickhouse-cluster-2s-1r.yml`文件中所有的hostname为本机内网IP
@@ -59,21 +59,21 @@ docker-compose -f docker-compose-clickhouse-cluster-2s-1r.yml up -d
 
 ## Grafana服务
 
-```
+```shell
 docker-compose -f docker-compose-grafana.yml up -d
 ```
 - 管理页面：http://127.0.0.1:3000 ，登录账号密码：admin/admin
 
 ## Loki服务（依赖MinIO）
 
-```
+```shell
 docker-compose -f docker-compose-loki.yml up -d
 ```
 - 注意需要修改`loki`目录下的`local-config.yaml`文件中的`172.16.2.231`为本机内网IP
 
 ## Promtail服务（依赖Loki）
 
-```
+```shell
 docker-compose -f docker-compose-promtail.yml up -d
 ```
 - 需要替换compose文件中的`/Users/martin/develop/projects/SpringBoot-Project/logs`为需要上传的日志目录
@@ -82,7 +82,7 @@ docker-compose -f docker-compose-promtail.yml up -d
 
 ## RocketMQ服务+Exporter服务+Dashboard服务
 
-```
+```shell
 docker-compose -f docker-compose-rocketmq.yml up -d
 ```
 - 注意需要修改rocketmq/broker/conf/broker.conf文件内的brokerIP1属性为本机内网IP
@@ -91,7 +91,7 @@ docker-compose -f docker-compose-rocketmq.yml up -d
 
 ## Dubbo-Admin服务
 
-```
+```shell
 docker-compose -f docker-compose-dubbo-admin.yml up -d
 ```
 - 注意需要修改docker-compose-dubbo-admin.yml文件中的zookeeper配置ip为目标ip
@@ -99,47 +99,50 @@ docker-compose -f docker-compose-dubbo-admin.yml up -d
 
 ## Redis+exporter服务
 
-```
+```shell
 docker-compose -f docker-compose-redis.yml up -d
 ```
 
 ## Redis Cluster集群服务(3主3从)
 
-```
+```shell
 docker-compose -f docker-compose-redis-cluster.yml up -d
 ```
-- 启动完成后，进入其中一个容器节点，执行命令`redis-cli --cluster create 127.0.0.1:6479 127.0.0.1:6579 127.0.0.1:6679 127.0.0.1:6779 127.0.0.1:6879 127.0.0.1:6979 --cluster-replicas 1`创建cluster集群
+- 启动完成后，进入其中一个容器节点，执行以下命令，创建集群
+```shell
+redis-cli --cluster create 127.0.0.1:6479 127.0.0.1:6579 127.0.0.1:6679 127.0.0.1:6779 127.0.0.1:6879 127.0.0.1:6979 --cluster-replicas 1
+```
 
 ## Memcached+exporter服务
 
-```
+```shell
 docker-compose -f docker-compose-memcached.yml up -d
 ```
 
 ## MySQL+exporter服务
 
-```
+```shell
 docker-compose -f docker-compose-mysql.yml up -d
 ```
 - 账号密码：root/root
 
 ## PostgreSQL+exporter服务
 
-```
+```shell
 docker-compose -f docker-compose-postgresql.yml up -d
 ```
 - 账号密码：postgres/postgres-local
 
 ## Kafka+UI服务
 
-```
+```shell
 docker-compose -f docker-compose-kafka.yml up -d
 ```
 - kafka-ui页面：http://127.0.0.1:9999
 
 ## RabbitMQ服务
 
-```
+```shell
 docker-compose -f docker-compose-rabbitmq.yml up -d
 ```
 - management页面：http://127.0.0.1:15672，账号密码：rabbitmq/rabbitmq-local
@@ -147,28 +150,28 @@ docker-compose -f docker-compose-rabbitmq.yml up -d
 
 ## Neo4j服务
 
-```
+```shell
 docker-compose -f docker-compose-neo4j.yml up -d
 ```
 - Web页面：http://127.0.0.1:7474/browser/
 
 ## cloudbeaver服务（web版dbeaver）
 
-```
+```shell
 docker-compose -f docker-compose-cloudbeaver.yml up -d
 ```
 - 管理页面：http://127.0.0.1:8978
 
 ## Flink服务
 
-```
+```shell
 docker-compose -f docker-compose-flink.yml up -d
 ```
 - dashboard页面：http://127.0.0.1:8081
 
 ## OpenGauss服务
 
-```
+```shell
 docker-compose -f docker-compose-opengauss.yml up -d
 ```
 - 账号密码：gauss/Gauss@123
