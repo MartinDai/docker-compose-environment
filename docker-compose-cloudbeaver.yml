@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   dbeaver:
     image: dbeaver/cloudbeaver:23.3.5

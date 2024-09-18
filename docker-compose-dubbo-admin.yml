@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   dubbo-admin:
     image: martindai/dubbo-admin:0.4.0

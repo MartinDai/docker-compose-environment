@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   clickhouse-2s-1r-node1-main:
     image: clickhouse/clickhouse-server:22.12.3.5-alpine

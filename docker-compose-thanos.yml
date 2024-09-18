@@ -1,4 +1,3 @@
-version: '3.7'
 services:
   thanos-store:
     image: raspbernetes/thanos:v0.23.1
