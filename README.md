@@ -19,7 +19,7 @@ docker-compose -f docker-compose-elasticsearch.yml up -d
 ```shell
 docker-compose -f docker-compose-minio.yml up -d
 ```
-- MinIO管理页面：http://127.0.0.1:19001，账号密码：minio/miniostorage
+- MinIO管理页面：http://127.0.0.1:19001 账号密码：minio/miniostorage
 
 ## Thanos+Prometheus集群（依赖MinIO）
 
@@ -62,7 +62,7 @@ docker-compose -f docker-compose-clickhouse-cluster-2s-1r.yml up -d
 ```shell
 docker-compose -f docker-compose-grafana.yml up -d
 ```
-- 管理页面：http://127.0.0.1:3000 ，登录账号密码：admin/admin
+- 管理页面：http://127.0.0.1:3000 登录账号密码：admin/admin
 
 ## Loki服务（依赖MinIO）
 
@@ -95,7 +95,7 @@ docker-compose -f docker-compose-rocketmq.yml up -d
 docker-compose -f docker-compose-dubbo-admin.yml up -d
 ```
 - 注意需要修改docker-compose-dubbo-admin.yml文件中的zookeeper配置ip为目标ip
-- dubbo-admin页面：http://127.0.0.1:8088，账号密码：root/root
+- dubbo-admin页面：http://127.0.0.1:8088 账号密码：root/root
 
 ## Redis+exporter服务
 
@@ -145,7 +145,7 @@ docker-compose -f docker-compose-kafka.yml up -d
 ```shell
 docker-compose -f docker-compose-rabbitmq.yml up -d
 ```
-- management页面：http://127.0.0.1:15672，账号密码：rabbitmq/rabbitmq-local
+- management页面：http://127.0.0.1:15672 账号密码：rabbitmq/rabbitmq-local
 - metrics地址：http://127.0.0.1:15692/metrics
 
 ## Neo4j服务
