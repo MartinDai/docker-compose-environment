@@ -175,3 +175,10 @@ docker-compose -f docker-compose-flink.yml up -d
 docker-compose -f docker-compose-opengauss.yml up -d
 ```
 - 账号密码：gauss/Gauss@123
+
+## VictoriaMetrics服务
+
+```shell
+docker-compose -f docker-compose-victoria-metrics.yml up -d
+```
+- 主页面：http://localhost:8428

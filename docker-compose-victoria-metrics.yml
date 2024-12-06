@@ -1,0 +1,16 @@
+services:
+  victoria-metrics:
+    image: victoriametrics/victoria-metrics:v1.107.0-scratch
+    container_name: victoria-metrics
+    volumes:
+      - ./victoria-metrics/scrape.yml:/etc/scrape.yml
+      - ./victoria-metrics/data:/victoria-metrics-data
+    command:
+      - '-promscrape.config=/etc/scrape.yml'
+    ports:
+      - "8428:8428"
+    networks:
+      - net-victoria-metrics
+networks:
+  net-victoria-metrics:
+    driver: bridge
