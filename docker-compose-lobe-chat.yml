@@ -1,0 +1,11 @@
+services:
+  lobe-chat:
+    image: lobehub/lobe-chat:v1.52.11
+    container_name: lobe-chat
+    ports:
+      - "3210:3210"
+    networks:
+      - net-lobe-chat
+networks:
+  net-lobe-chat:
+    driver: bridge

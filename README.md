@@ -182,3 +182,10 @@ docker-compose -f docker-compose-opengauss.yml up -d
 docker-compose -f docker-compose-victoria-metrics.yml up -d
 ```
 - 主页面：http://localhost:8428
+
+## LobeChat服务
+
+```shell
+docker-compose -f docker-compose-lobe-chat.yml up -d
+```
+- 主页面：http://localhost:3210
