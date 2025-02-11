@@ -189,3 +189,12 @@ docker-compose -f docker-compose-victoria-metrics.yml up -d
 docker-compose -f docker-compose-lobe-chat.yml up -d
 ```
 - 主页面：http://localhost:3210
+
+## LocalAI服务
+
+镜像+内置模型约占用20GB左右
+
+```shell
+docker-compose -f docker-compose-localai.yml up -d
+```
+- 主页面：http://localhost:8181

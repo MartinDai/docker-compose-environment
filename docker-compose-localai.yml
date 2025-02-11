@@ -1,0 +1,14 @@
+services:
+  localai:
+    image: localai/localai:v2.25.0-aio-cpu
+    container_name: localai
+    volumes:
+      ## 挂载模型存储的目录
+      - ./localai/models:/build/models
+    ports:
+      - "8181:8080"
+    networks:
+      - net-localai
+networks:
+  net-localai:
+    driver: bridge

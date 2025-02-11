@@ -27,6 +27,8 @@ flink/data/
 
 kafka/data/
 
+localai/models/
+
 loki/data/
 
 minio/data/
