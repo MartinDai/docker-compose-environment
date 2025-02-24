@@ -15,6 +15,8 @@ clickhouse/2s_1r/node2/sub/log/
 
 cloudbeaver/workspace/
 
+consul/data/
+
 elasticsearch/master/data/
 elasticsearch/master/logs/
 elasticsearch/master/plugins/
@@ -37,6 +39,7 @@ postgresql/data/
 
 mysql/data/
 
+prometheus/data/
 prometheus/node1/data/
 prometheus/node2/data/
 

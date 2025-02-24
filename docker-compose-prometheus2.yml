@@ -12,7 +12,7 @@ services:
       - '--storage.tsdb.max-block-duration=1m'
       - '--storage.tsdb.retention.time=5m'
     ports:
-      - "9091:9090"
+      - "9082:9090"
     networks:
       - net-prometheus2
   thanos-sidecar2:

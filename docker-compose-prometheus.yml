@@ -1,0 +1,17 @@
+services:
+  prometheus:
+    image: prom/prometheus:v2.31.0
+    container_name: prometheus
+    volumes:
+      - ./prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus/data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    ports:
+      - "9090:9090"
+    networks:
+      - net-prometheus
+networks:
+  net-prometheus:
+    driver: bridge

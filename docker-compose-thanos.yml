@@ -21,9 +21,9 @@ services:
     command:
       - query
       - --http-address=0.0.0.0:19192
-      - --store=172.16.2.231:19090
-      - --store=172.16.2.231:29090
-      - --store=172.16.2.231:39090
+      - --store=192.168.8.146:19090
+      - --store=192.168.8.146:29090
+      - --store=192.168.8.146:39090
       - --query.replica-label=node
     ports:
       - "19192:19192"

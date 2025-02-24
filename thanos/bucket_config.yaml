@@ -1,7 +1,7 @@
 type: S3
 config:
   bucket: thanos
-  endpoint: 172.16.2.231:19000
+  endpoint: 192.168.8.146:19000
   access_key: minio
   insecure: true
   signature_version2: false
