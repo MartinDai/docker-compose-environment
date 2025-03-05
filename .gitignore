@@ -28,6 +28,7 @@ grafana/data/
 flink/data/
 
 kafka/data/
+kafka/ui/
 
 localai/models/
 
