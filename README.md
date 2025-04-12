@@ -97,6 +97,13 @@ docker-compose -f docker-compose-loki.yml up -d
 ```
 - 注意需要修改`loki`目录下的`local-config.yaml`文件中的`172.16.2.231`为本机内网IP
 
+## MCP Inspector服务
+
+```shell
+docker-compose -f docker-compose-mcp-inspector.yml up -d
+```
+- 主页面：http://localhost:5173
+
 ## Memcached+exporter服务
 
 ```shell
