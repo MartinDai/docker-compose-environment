@@ -1,6 +1,6 @@
 services:
   kafka:
-    image: bitnami/kafka:3.5.1
+    image: bitnami/kafka:4.0.0
     container_name: kafka
     volumes:
       ## 挂载位置（kafka镜像和宿主机器之间时间保持一致）
@@ -22,7 +22,7 @@ services:
     networks:
       - net-kafka
   kafka-ui:
-    image: kafbat/kafka-ui:v1.1.0
+    image: kafbat/kafka-ui:v1.2.0
     container_name: kafka-ui
     environment:
       KAFKA_CLUSTERS_0_NAME: local
