@@ -117,6 +117,13 @@ docker-compose -f docker-compose-minio.yml up -d
 ```
 - MinIO管理页面：http://127.0.0.1:19001 账号密码：minio/miniostorage
 
+## MongoDB+exporter服务
+
+```shell
+docker-compose -f docker-compose-mongodb.yml up -d
+```
+- Metrics地址：http://127.0.0.1:9216
+
 ## MySQL+exporter服务
 
 ```shell
