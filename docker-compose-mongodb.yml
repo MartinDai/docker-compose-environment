@@ -1,0 +1,28 @@
+services:
+  mongodb:
+    image: mongodb/mongodb-community-server:4.4.29-ubuntu2004
+    container_name: mongodb
+    restart: always
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=user"
+      - "MONGO_INITDB_ROOT_PASSWORD=pass"
+    ports:
+      - "27017:27017"
+    networks:
+      - net-mongodb
+  mongodb-exporter:
+    image: percona/mongodb_exporter:0.30.0
+    container_name: mongodb-exporter
+    command: [
+      '--mongodb.uri=mongodb://user:pass@mongodb:27017/admin?ssl=false',
+      '--web.listen-address=:9216'
+    ]
+    ports:
+      - "9216:9216"
+    networks:
+      - net-mongodb
+    depends_on:
+      - mongodb
+networks:
+  net-mongodb:
+    driver: bridge
