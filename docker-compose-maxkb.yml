@@ -1,0 +1,15 @@
+services:
+  maxkb:
+    image: registry.fit2cloud.com/maxkb/maxkb
+    container_name: maxkb
+    restart: always
+    volumes:
+      - ./maxkb/python-packages:/opt/maxkb/app/sandbox/python-packages
+      - ./maxkb/data:/var/lib/postgresql/data
+    ports:
+      - "18888:8080"
+    networks:
+      - maxkb
+networks:
+  maxkb:
+    driver: bridge

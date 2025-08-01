@@ -30,10 +30,20 @@ docker-compose -f docker-compose-cloudbeaver.yml up -d
 
 ## Consul服务
 
-```bash
+```shell
 docker-compose -f docker-compose-consul.yml up -d
 ```
 - 后台管理页面：http://localhost:8500
+
+## Dify服务
+
+进入dify目录，执行命令
+
+```shell
+docker-compose up -d
+```
+
+主页面：http://localhost
 
 ## Dubbo-Admin服务
 
@@ -96,6 +106,14 @@ docker-compose -f docker-compose-localai.yml up -d
 docker-compose -f docker-compose-loki.yml up -d
 ```
 - 注意需要修改`loki`目录下的`local-config.yaml`文件中的`172.16.2.231`为本机内网IP
+
+## MaxKB服务
+
+```shell
+docker-compose -f docker-compose-maxkb.yml up -d
+```
+
+主页面：http://localhost:18888 账号密码：admin/MaxKB@123..
 
 ## MCP Inspector服务
 

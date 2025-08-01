@@ -17,6 +17,8 @@ cloudbeaver/workspace/
 
 consul/data/
 
+dify/volumes/
+
 elasticsearch/master/data/
 elasticsearch/master/logs/
 elasticsearch/master/plugins/
