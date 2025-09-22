@@ -120,7 +120,7 @@ docker-compose -f docker-compose-maxkb.yml up -d
 ```shell
 docker-compose -f docker-compose-mcp-inspector.yml up -d
 ```
-- 主页面：http://localhost:5173
+- 主页面：http://localhost:6274
 
 ## Memcached+exporter服务
 

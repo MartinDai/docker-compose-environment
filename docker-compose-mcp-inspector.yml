@@ -1,12 +1,5 @@
 services:
   inspector:
-    image: mcp/inspector:latest
+    image: ghcr.io/modelcontextprotocol/inspector:0.16.8
     container_name: inspector
-    ports:
-      - "5173:5173"
-      - "3000:3000"
-    networks:
-      - inspector
-networks:
-  inspector:
-    driver: bridge
+    network_mode: host
